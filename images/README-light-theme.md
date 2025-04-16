@@ -1,0 +1,15 @@
+# Image Generation Prompts for Sunlit Dreams Light Theme
+
+The following are detailed prompts to generate each of the images needed for the Fun Light themed landing page. Use these prompts with a text-to-image AI generator.
+
+## enchanted-garden.jpg
+"A bright, sunlit garden filled with vibrant flowers in pastel colors of pink, purple, yellow, and blue. An ornate white gazebo sits in the center with flowering vines growing around its columns. Butterflies and hummingbirds flutter among the flowers. Soft golden sunlight streams through tree branches, creating dappled patterns on a winding stone path. The atmosphere is magical and cheerful, with a hint of fairy tale enchantment. A small rainbow appears in the distance where a fountain spray catches the light. The colors are bright but not oversaturated, with a dreamy, slightly soft focus. Photorealistic style with fantasy elements, high detail, warm lighting, 8k resolution."
+
+## butterfly-flower.jpg
+"A close-up macro photograph of a beautiful monarch butterfly with vibrant orange and black wings resting on a bright pink or purple flower in full bloom. The butterfly's delicate details are clearly visible, including the intricate wing patterns and delicate antennae. The flower petals are perfectly formed with droplets of morning dew catching the sunlight. The background is softly blurred with green foliage and hints of other colorful flowers. The lighting is bright and cheerful, capturing the warm golden glow of morning sunlight. Photorealistic, macro photography style, shallow depth of field, high detail, 8k resolution."
+
+## light-texture-bg.jpg
+"A seamless light texture resembling handmade paper or fine linen fabric. The pattern features subtle floral or nature-inspired motifs like tiny leaves, flowers, or swirls. The background is primarily warm off-white or very light cream (FAF6F0) with the pattern elements in slightly darker pastel shades of pink and light orange. The texture appears delicate and fresh with subtle variations that give it depth and character. High resolution, tileable pattern, subtle details, clean modern feel, 4k resolution."
+
+## celebration-background.jpg
+"A bright outdoor celebration scene viewed through an arched trellis covered in flowering vines and fairy lights. The scene shows a garden party at golden hour with soft sunlight filtering through trees. Paper lanterns in pastel colors hang from branches, and strings of warm white lights create a magical canopy overhead. In the distance are hints of a dessert table with colorful treats and a few happy people enjoying the celebration. The foreground features part of the trellis frame with flowers and greenery. The color palette is primarily warm whites, soft pastels, and golden highlights. The mood is joyful, welcoming, and festive. Photorealistic, depth of field, soft warm lighting, high resolution, 8k quality." 

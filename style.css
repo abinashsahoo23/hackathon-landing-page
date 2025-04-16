@@ -1,0 +1,1152 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* CSS Reset and Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: scroll; /* Force scrollbar to prevent layout shifts */
+  scroll-padding-top: 80px; /* Default padding for fixed header */
+}
+
+/* Adjust scroll padding for different screen sizes */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 120px; /* Increased padding for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    scroll-padding-top: 140px; /* Even more padding for small screens */
+  }
+}
+
+/* Theme Variables */
+:root {
+  --bg-color: #121212;
+  --text-color: #EAEAEA;
+  --primary-color: #8A0303; /* Deep Red */
+  --secondary-color: #444444; /* Medium Dark Grey */
+  --accent-color: #31244A; /* Dark Purple */
+  --border-color: #62364F; /* Burgundy */
+  --font-heading: 'MedievalSharp', cursive;
+  --font-body: 'Merriweather', serif;
+  --font-accent: 'Playfair Display', serif;
+}
+
+/* Fun Light Theme Variables */
+body.light-theme {
+  --bg-color: #FAF6F0;       /* Warm Off-white */
+  --text-color: #2D2D2D;     /* Dark Grey */
+  --primary-color: #FF6B6B;  /* Vibrant Coral */
+  --secondary-color: #F0F0F0; /* Very Light Grey */
+  --accent-color: #FFB347;   /* Light Orange */
+  --border-color: #FFD6BA;   /* Soft Peach */
+  --font-heading: 'Pacifico', cursive;
+  --font-body: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-bottom: 0.75em;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+h3 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+h6 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Layout and Container */
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding in width calculation */
+  overflow: visible;
+}
+
+section {
+  display: block;
+  position: relative;
+  padding: 90px 0 60px; /* Increased top padding */
+  margin: 0;
+  width: 100%;
+  clear: both; /* Prevent float issues */
+}
+
+/* Specific padding for first section (hero) */
+#hero {
+  padding-top: 80px;
+}
+
+#hero, #concept, #duality, #cta {
+  width: 100%;
+}
+
+/* Hero Section */
+#hero {
+  height: 70vh; /* Reduced to ensure other content is visible */
+  min-height: 400px; /* Minimum height on smaller screens */
+  max-height: 800px; /* Maximum height on larger screens */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  padding-top: 80px; /* Space for fixed navbar */
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)), url('images/gothic-cathedral.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: slowZoom 60s infinite alternate;
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+#hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+#hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5em;
+  color: var(--text-color);
+  position: relative;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  animation: fadeInSlideUp 1.2s ease forwards, textPulse 4s infinite alternate 1.2s;
+  letter-spacing: 3px;
+  display: block;
+  opacity: 0; /* Start invisible */
+}
+
+#hero h1::after {
+  display: none;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 2em;
+  position: relative;
+  line-height: 1.8;
+  animation: fadeInSlideUp 1.2s ease 0.3s forwards;
+  opacity: 0; /* Start invisible */
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#hero .cta-button {
+  animation: fadeInSlideUp 1.2s ease 0.6s forwards;
+  opacity: 0; /* Start invisible */
+}
+
+/* Base Image Styles */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  border: 1px solid var(--secondary-color);
+}
+
+/* Image Container Optimization */
+.image-container {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease;
+  filter: brightness(0.9) contrast(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  object-position: center;
+  border: none;
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(138, 3, 3, 0.1) 0%, rgba(0, 0, 0, 0) 50%, rgba(49, 36, 74, 0.1) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.image-container:hover img {
+  filter: brightness(1) contrast(1.05);
+  transform: scale(1.02);
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Button Styles */
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button:hover {
+  background-color: var(--primary-color);
+  filter: brightness(110%);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark theme specific button hover */
+body.light-theme .cta-button:hover {
+  filter: brightness(105%);
+  box-shadow: 0 8px 16px rgba(255, 107, 107, 0.3);
+}
+
+/* Section Styles */
+#concept, #duality {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+/* CTA Section */
+#cta {
+  background-color: var(--accent-color);
+  text-align: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/cta-background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 100px 0;
+  margin-top: 0;
+  padding-top: 90px;
+}
+
+#cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(49, 36, 74, 0.5) 0%, rgba(18, 18, 18, 0.8) 70%);
+  z-index: 1;
+}
+
+#cta .container {
+  position: relative;
+  z-index: 2;
+}
+
+#cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+#cta h2::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+#cta .cta-button {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding: 1em 2.5em;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 0;
+  background-color: #0a0a0a;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.7rem;
+  }
+  
+  #hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  #hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Text Effects */
+@keyframes textPulse {
+  0% {
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  }
+  100% {
+    text-shadow: 3px 3px 15px rgba(138, 3, 3, 0.8);
+  }
+}
+
+/* Animation Effects */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button Hover Effect */
+.cta-button.hover-effect {
+  background-color: #6e0202;
+  box-shadow: 0 0 15px rgba(138, 3, 3, 0.5);
+}
+
+/* Navigation */
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--text-color);
+  text-shadow: 1px 1px 2px rgba(138, 3, 3, 0.6);
+  white-space: nowrap;
+  margin-right: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links li {
+  position: relative;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.nav-links a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:not(.nav-cta):hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-cta {
+  background-color: var(--primary-color);
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+  background-color: var(--primary-color);
+  filter: brightness(110%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme switch positioning */
+.theme-switch-wrapper {
+  margin-left: 1.5rem;
+}
+
+/* Media queries for better responsive design */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.8rem;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.8rem;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0;
+  }
+  
+  .theme-switch-wrapper {
+    margin-left: 0.5rem;
+  }
+  
+  /* Adjust hero section to account for taller nav on mobile */
+  #hero {
+    padding-top: 120px;
+  }
+}
+
+/* Small devices */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0.7rem;
+  }
+  
+  .logo {
+    font-size: 1.1rem;
+  }
+  
+  .nav-links {
+    gap: 0.7rem;
+  }
+  
+  .nav-links a {
+    font-size: 0.75rem;
+  }
+  
+  .theme-switch {
+    height: 28px;
+    width: 52px;
+  }
+  
+  .slider:before {
+    height: 20px;
+    width: 20px;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(24px);
+  }
+  
+  /* Adjust hero section to account for even taller nav on small devices */
+  #hero {
+    padding-top: 140px;
+  }
+}
+
+/* Theme Switch Adjustments for Small Devices */
+@media (max-width: 480px) {
+  .theme-switch-wrapper {
+    transform: scale(0.9);
+    margin-left: 0.3rem;
+  }
+  
+  .moon-icon, .sun-icon {
+    font-size: 12px;
+    top: 6px;
+  }
+  
+  .moon-icon {
+    left: 6px;
+  }
+  
+  .sun-icon {
+    right: 6px;
+  }
+}
+
+/* Duality Section */
+.duality-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.duality-text {
+  flex: 1;
+}
+
+.duality-image {
+  flex: 1;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 992px) {
+  .duality-content {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .duality-image {
+    margin-left: 2rem;
+    width: 45%;
+  }
+  
+  .duality-text {
+    width: 55%;
+  }
+}
+
+.duality-image img {
+  border-radius: 3px;
+  transition: all 0.6s ease;
+}
+
+.duality-image:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Concept Section */
+.concept-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.concept-text {
+  flex: 1;
+}
+
+.concept-image {
+  flex: 1;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 992px) {
+  .concept-content {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  
+  .concept-image {
+    margin-right: 2rem;
+    width: 45%;
+  }
+  
+  .concept-text {
+    width: 55%;
+  }
+}
+
+.concept-image img {
+  border-radius: 3px;
+  transition: all 0.6s ease;
+}
+
+.concept-image:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Paragraph Styles */
+p {
+  line-height: 1.7;
+  max-width: 65ch;
+  margin-bottom: 1em;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+}
+
+.container p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#concept p, #duality p {
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+#hero p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 2em;
+  animation: fadeUp 1.5s ease-out;
+  position: relative;
+  line-height: 1.8;
+}
+
+/* Section title common styles */
+section h2 {
+  margin-bottom: 2rem;
+}
+
+/* Section Headers */
+#concept h2, #duality h2, #cta h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+#concept h2::after, #duality h2::after, #cta h2::after {
+  width: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Main Container */
+main {
+  display: block; /* Ensure standard display */
+  position: relative;
+}
+
+/* Section-specific styles */
+#concept, #duality {
+  position: relative;
+  background-color: var(--bg-color);
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Remove debug borders in production */
+#concept, #duality, #cta {
+  border-top: none;
+}
+
+/* Remove debug message */
+body::after {
+  display: none;
+}
+
+/* Fix for scrolling issues */
+html, body {
+  overflow-x: hidden;
+  height: auto; /* Allow content to determine height */
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Force all sections to be visible */
+#concept, #duality, #cta {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  min-height: 200px; /* Ensure some minimum height */
+}
+
+/* Ensure no overlapping sections */
+section + section {
+  margin-top: 10px; /* Add a gap between sections */
+}
+
+/* Theme Switch Styling */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  margin-left: 20px;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #333;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  overflow: hidden;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+  z-index: 2;
+}
+
+.slider.round {
+  border-radius: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #FFEB99;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: #FF6B6B;
+}
+
+.moon-icon, .sun-icon {
+  position: absolute;
+  top: 6px;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+}
+
+.moon-icon {
+  left: 8px;
+  opacity: 1;
+}
+
+.sun-icon {
+  right: 8px;
+  opacity: 0.3;
+}
+
+input:checked + .slider .moon-icon {
+  opacity: 0.3;
+}
+
+input:checked + .slider .sun-icon {
+  opacity: 1;
+}
+
+/* Add transitions for theme switch */
+.cta-button,
+h1, h2, h3, h4, h5, h6,
+.main-nav,
+.nav-links a,
+.image-container,
+footer,
+.logo {
+  transition: all 0.4s ease;
+}
+
+/* Media queries for responsive layout */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
+  
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .theme-switch-wrapper {
+    order: 2;
+  }
+}
+
+/* Rest of your styles will go here */
+
+/* Light Theme Specific Overrides */
+body.light-theme .hero-bg {
+  background-image: linear-gradient(rgba(250, 246, 240, 0.3), rgba(250, 246, 240, 0.3)), url('images/enchanted-garden.jpg');
+  animation: slowZoomLight 60s infinite alternate;
+}
+
+@keyframes slowZoomLight {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  100% {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+  }
+}
+
+body.light-theme #concept,
+body.light-theme #duality {
+  /* Remove any lingering background image rules */
+  background-image: none;
+}
+
+body.light-theme #cta {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('images/celebration-background.jpg');
+  background-position: center center;
+}
+
+/* Additional light theme element styles */
+body.light-theme h1::after,
+body.light-theme h2::after {
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+body.light-theme .main-nav {
+  background-color: rgba(250, 246, 240, 0.95);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme footer {
+  background-color: #f0e9df;
+}
+
+/* Light Theme Text and UI Elements */
+body.light-theme #hero h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: textPulseLightMode 4s infinite alternate;
+}
+
+@keyframes textPulseLightMode {
+  0% {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    text-shadow: 2px 2px 10px rgba(255, 107, 107, 0.5);
+  }
+}
+
+body.light-theme .image-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+body.light-theme .image-container img {
+  filter: brightness(1.05) contrast(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .image-container:hover img {
+  filter: brightness(1.1) contrast(1.05);
+  transform: scale(1.02);
+}
+
+/* Fix for text colors in light mode */
+body.light-theme .logo,
+body.light-theme .nav-links a,
+body.light-theme #hero p {
+  color: var(--text-color);
+}
+
+body.light-theme .nav-cta {
+  color: white;
+  background-color: var(--primary-color);
+}
+
+/* Light Theme Button Styles */
+body.light-theme .cta-button {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+body.light-theme .cta-button:hover {
+  background-color: #ff5252;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(255, 107, 107, 0.4);
+}
+
+/* Textured Sections */
+.textured-section {
+  position: relative;
+  padding: 90px 0 60px;
+  background-color: var(--bg-color);
+  z-index: 1;
+  overflow: visible;
+}
+
+/* Dark Theme Textured Backgrounds */
+.textured-section#concept {
+  background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('images/texture-bg.jpg');
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+.textured-section#duality {
+  background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('images/texture-bg.jpg');
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+/* Light Theme Textured Backgrounds */
+body.light-theme .textured-section#concept {
+  background-image: linear-gradient(rgba(250, 246, 240, 0.85), rgba(250, 246, 240, 0.85)), url('images/light-texture-bg.jpg');
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+body.light-theme .textured-section#duality {
+  background-image: linear-gradient(rgba(250, 246, 240, 0.85), rgba(250, 246, 240, 0.85)), url('images/light-texture-bg.jpg');
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+/* Container positioning in textured sections */
+.textured-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Scroll Animation Styles */
+#concept h2, #concept p, #concept .image-container,
+#duality h2, #duality p, #duality .image-container,
+#cta h2, #cta .cta-button {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Stagger delays for sequential animations */
+#concept h2, #duality h2, #cta h2 {
+  transition-delay: 0.1s;
+}
+
+#concept p:first-of-type, #duality p:first-of-type {
+  transition-delay: 0.2s;
+}
+
+#concept p:last-of-type {
+  transition-delay: 0.3s;
+}
+
+#concept .image-container, #duality .image-container {
+  transition-delay: 0.4s;
+}
+
+#cta .cta-button {
+  transition-delay: 0.3s;
+}
+
+/* Visible state for elements */
+.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
